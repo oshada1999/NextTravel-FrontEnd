@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/fonts/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <!---->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!--animate.css import-->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/preloader.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <!--import css Style-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--fonts import-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap" rel="stylesheet">
+    <!--import unicons-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <!--import swiper-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/style/project-style.css">
+
+    <title>Next Travel</title>
+</head>
+<body class="body">
+
+<header id="header">
+    <img src="assets/images/nextTravel (2).png" alt="2 (4).png" data-aos="fade-right">
+    <div class="bx bx-menu" id="menu-icon"><i class="fa-solid fa-bars"></i></div>
+    <nav>
+
+        <ul class="navlist" data-aos="fade-up">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#package">Packages</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#hotels">Hotels</a></li>
+            <li><a href="#vehicle">Vehicle</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+    <a href="#" class="top-button header-login" data-aos="fade-left">Login</a>
+
+
+
+
+</header>
+
+<main>
+
+    <!--home -->
+    <section id="home" class="home">
+        <div class="home-text">
+            <div class="wrapper icon">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+                <div class="form-box login">
+                    <h2>Login</h2>
+                    <form action="#">
+                        <div class="input-box">
+                            <div class="custom-select">
+                                <select id="myComboBox">
+                                    <option value="option1">As a Customer</option>
+                                    <option value="option2">As a Admin</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                            <input type="email" id="login-Email" required placeholder="Email">
+                        </div>
+
+                        <div class="input-box">
+                            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                            <input type="password" id="login-password" required placeholder="Password">
+                        </div>
+                        <div class="remember-forget">
+                            <label><input type="checkbox">Remember me</label>
+                            <a href="#">Forget Password?</a>
+                        </div>
+                        <button type="button" class="login-btn" id="login-btn">Login</button>
+                        <div class="login-register">
+                            <p>Don't have an account?<a
+                                    href="#"
+                                    class="register-link">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="register-container icon">
+                <span class=" icon-close">
+                    <ion-icon name="close"></ion-icon>
+                </span>
+
+                <h2>Registration</h2>
+                <form id="User-Form" action="/processForm" method="post">
+                    <div class="form first">
+                        <div class="details-personal personal">
+                            <span class="title">Personal Details</span>
+                            <div class="fields">
+                                <div class="input-fields">
+                                    <label>Username</label>
+                                    <input type="text" id="user-UserName" placeholder="Enter Username" required>
+                                </div>
+                                <div class="input-fields">
+                                    <label>Password</label>
+                                    <input type="password" id="user-Password" placeholder="Enter Password" required>
+                                </div>
+                                <div class="input-fields">
+                                    <label>Age</label>
+                                    <input type="number" id="user-Age" placeholder="Enter Age" required>
+                                </div>
+                                <div class="input-fields">
+                                    <label>Mobile Number</label>
+                                    <input type="tel" id="user-Contact" placeholder="Enter Contact" required>
+                                </div>
+                                <div class="input-fields">
+                                    <label>Email Address</label>
+                                    <input type="email" id="user-Email" placeholder="Enter Email" required>
+                                </div>
+                                <div class="input-fields">
+                                    <label>Address</label>
+                                    <input type="text" id="user-Address" placeholder="Enter Address" required>
+                                </div>
+                                <div class="input-fields">
+                                    <label>Gender</label>
+                                    <input type="text" id="user-Gender" placeholder="Enter Gender" required>
+                                </div>
+                                <div class="input-fields">
+                                    <label>NIC Number</label>
+                                    <input type="text" id="user-Nic" placeholder="Enter NIC" required>
+                                </div>
+                                <div class="input-fields">
+                                    <label>Profile Pic</label>
+                                    <input type="file" id="user-Profile">
+                                </div>
+                            </div>
+                            <button type="button" id="register-btn" class="register-btn">Register</button>
+                            <div class="register-text">
+                                <p>Already have an account?<a
+                                        href="#"
+                                        class="login-link">Login</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <h3 data-aos="fade-right" data-aos-duration="1000">Welcome,</h3>
+            <h1 data-aos="fade-right" data-aos-duration="1500">Enjoy Your Dream Vacation...</h1>
+
+            <div class="social" data-aos="fade-right" data-aos-duration="3000">
+                <box-icon name='facebook-circle' type='logo' color='#ffffff'></box-icon>
+                <a href="https://www.linkedin.com/in/chathura-hewage-114565236/"><i class="fa-brands fa-linkedin"
+                                                                                    style="color: #ffffff;"></i></a>
+                <a href="https://github.com/oshada1999"><i class="fa-brands fa-facebook"
+                                                           style="color: #ffffff;"></i></a>
+                <a href="https://github.com/oshada1999"><i class="fa-brands fa-square-instagram"
+                                                           style="color: #ffffff;"></i></a>
+                <a href="tel:+94702229087"><i class="fa-brands fa-whatsapp"
+                                              style="color: #ffffff;"></i></a>
+
+            </div>
+            <a href="#about" class="btn" data-aos="fade-right" data-aos-duration="3500">Booking</a>
+        </div>
+        <div class="home-img" data-aos="zoom-in-left">
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+
+    </section>
+    <!--About Me-->
+    <section class="about" id="about">
+        <div class="about-img" data-aos="zoom-in-down" data-aos-easing="ease-in-sine">
+            <img src="assets/images/2.png" alt="New Project (7).png">
+        </div>
+        <div class="about-text">
+            <h3 data-aos="fade-down-right" data-aos-duration="1000">Next Travel Pvt Ltd.</h3>
+            <h2 data-aos="fade-down-right" data-aos-duration="1500">About Us</h2>
+            <p data-aos="fade-down-right" data-aos-duration="2000">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis consectetur debitis ducimus
+                earum eligendi et eum, fuga iure nesciunt numquam quae quibusdam quos repellat, sequi unde vero
+                voluptatem voluptatibus!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto corporis, cupiditate dicta
+                doloremque dolorum earum impedit itaque molestias nemo obcaecati optio repellat, repudiandae sunt
+                suscipit vero voluptatem? Aperiam architecto dolor, ea et exercitationem iure laborum laudantium libero
+                magni nobis nulla obcaecati optio recusandae reiciendis rem sequi, sit. Ratione, repellendus!
+
+            </p>
+            <a href="tel:+94702229087" class="btn" data-aos="fade-down-right">Contact Us</a>
+        </div>
+    </section>
+    <!--package-->
+    <section class="package" id="package">
+        <div class="heading">
+            <h2 data-aos="zoom-out-up">Awesome <span>Packages</span></h2>
+        </div>
+
+        <div class="package-content" data-aos="fade-up">
+            <div class="col">
+                <div class="s se-one">
+                    <img src="assets/images/integration.png" alt="icons8-software-64 (3).png">
+                </div>
+                <h3><span>Regular</span></h3>
+                <p id="one-p">Hotel Star Rate -⭐⭐<br>Vehicle Category - Economy <br>Good .80 reviews</p>
+                <hr>
+                <br>
+                <a href="https://github.com/oshada1999/Hostel-Management-System" class="main_button">View
+                    More <i class="uil uil-arrow-right"></i></a>
+                <br>
+                <br>
+                <p>Starting from <span class="price-package"> LKR 15,000</span></p>
+            </div>
+            <div class="col">
+                <div class="s se-two">
+                    <img src="assets/images/icons8-web-development-99.png" alt="icons8-software-64 (3).png">
+                </div>
+                <h3><span>Mid-level</span></h3>
+                <p id="two-p">Hotel Star Rate -⭐⭐⭐<br>Vehicle Category - Mid-Range<br>Good .100 reviews</p>
+                <hr>
+                <br>
+                <a href="https://github.com/oshada1999/Hostel-Management-System" class="main_button">View
+                    More <i class="uil uil-arrow-right"></i></a>
+                <br>
+                <br>
+                <p>Starting from <span class="price-package"> LKR 30,000</span></p>
+            </div>
+            <div class="col">
+                <div class="s se-tree">
+                    <img src="assets/images/icons8-windows-10-personalization-100.png "
+                         alt="icons8-software-64 (3).png">
+                </div>
+                <h3><span>Luxury</span></h3>
+                <p id="tree-p">Hotel Star Rate -⭐⭐⭐⭐<br>Vehicle Category - Luxury<br>Excelent .80 reviews</p>
+                <hr>
+                <br>
+                <a href="https://github.com/oshada1999/Hostel-Management-System" class="main_button">View
+                    More <i class="uil uil-arrow-right"></i></a>
+                <br>
+                <br>
+                <p>Starting from <span class="price-package"> LKR 40,000</span></p>
+            </div>
+            <div class="col">
+                <div class="s se-four">
+                    <img src="assets/images/mobile-phone.png" alt="icons8-software-64 (3).png">
+                </div>
+                <h3><span>Super Luxury</span></h3>
+                <p id="four-p">Hotel Star Rate -⭐⭐⭐⭐⭐<br>Vehicle Category - Super Luxury<br>Superb .80 reviews</p>
+                <hr>
+                <br>
+                <a href="https://github.com/oshada1999/Hostel-Management-System" class="main_button">View
+                    More <i class="uil uil-arrow-right"></i></a>
+                <br>
+                <br>
+                <p>Starting from <span class="price-package"> LKR 50,000</span></p>
+            </div>
+        </div>
+    </section>
+    <!--Service-->
+    <section class="service" id="service">
+        <div class="heading">
+            <h2 data-aos="zoom-out-up">Our<span>Service</span></h2>
+        </div>
+        <div class="service-content">
+            <div class="row one">
+                <div class="service-div">
+                    <img src="assets/images/icons8-hotel-100 (2).png" alt="senior-man-chilling-swimming-pool-min.jpg"
+                         data-aos="flip-left">
+                </div>
+                <br>
+                <h3>Affordable Hotels</h3>
+                <br>
+                <p class="service-phar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem
+                    beatae inventore laborum minus nobis placeat quibusdam rem, soluta suscipit, ullam vel. Doloremque
+                    fugit nemo officiis quasi, quia recusandae sit!</p>
+            </div>
+            <div class="row one">
+                <div class="service-div">
+                    <img src="assets/images/icons8-kawaii-noodle-100.png"
+                         alt="senior-man-chilling-swimming-pool-min.jpg" data-aos="flip-left">
+                </div>
+                <br>
+                <h3>Food And Drinks</h3>
+                <br>
+                <p class="service-phar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem
+                    beatae inventore laborum minus nobis placeat quibusdam rem, soluta suscipit, ullam vel. Doloremque
+                    fugit nemo officiis quasi, quia recusandae sit!</p>
+
+            </div>
+            <div class="row one">
+                <div class="service-div">
+                    <img src="assets/images/icons8-speaker-100 (1).png" alt="senior-man-chilling-swimming-pool-min.jpg"
+                         data-aos="flip-left">
+                </div>
+                <br>
+                <h3>Safty Guide</h3>
+                <br>
+                <p class="service-phar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem
+                    beatae inventore laborum minus nobis placeat quibusdam rem, soluta suscipit, ullam vel. Doloremque
+                    fugit nemo officiis quasi, quia recusandae sit!</p>
+
+            </div>
+            <div class="row one">
+                <div class="service-div">
+                    <img src="assets/images/icons8-world-100 (1).png" alt="senior-man-chilling-swimming-pool-min.jpg"
+                         data-aos="flip-left">
+                </div>
+                <br>
+                <h3>Around The World</h3>
+                <br>
+                <p class="service-phar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem
+                    beatae inventore laborum minus nobis placeat quibusdam rem, soluta suscipit, ullam vel. Doloremque
+                    fugit nemo officiis quasi, quia recusandae sit!</p>
+
+            </div>
+            <div class="row one">
+                <div class="service-div">
+                    <img src="assets/images/icons8-plane-100 (1).png" alt="senior-man-chilling-swimming-pool-min.jpg"
+                         data-aos="flip-left">
+                </div>
+                <br>
+                <h3>Fast Travel</h3>
+                <br>
+                <p class="service-phar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem
+                    beatae inventore laborum minus nobis placeat quibusdam rem, soluta suscipit, ullam vel. Doloremque
+                    fugit nemo officiis quasi, quia recusandae sit!</p>
+
+            </div>
+            <div class="row one">
+                <div class="service-div">
+                    <img src="assets/images/icons8-adventure-100 (1).png"
+                         alt="senior-man-chilling-swimming-pool-min.jpg" data-aos="flip-left">
+                </div>
+                <br>
+                <h3>Adventures</h3>
+                <br>
+                <p class="service-phar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem
+                    beatae inventore laborum minus nobis placeat quibusdam rem, soluta suscipit, ullam vel. Doloremque
+                    fugit nemo officiis quasi, quia recusandae sit!</p>
+
+            </div>
+        </div>
+    </section>
+    <!--hotels-->
+    <section class="hotels" id="hotels">
+        <div class="heading">
+            <h2 data-aos="zoom-in-up">Our <span>Hotels.</span></h2>
+        </div>
+
+        <div class="container section_border">
+            <div class="main_container swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="content swiper-slide" id="projectC" data-aos="flip-left">
+                        <div class="hotel-div">
+                            <img src="assets/images/th (2).jpg" alt="images/th (5).jpg"
+                                 class="main_images" data-aos="flip-left">
+
+                            <h1 class="main_title">Blue Water Hotel <br>
+                                Sri Lanka,Central Province,Sigiriya</h1>
+                            <h3 class="hotel-h3">Star Rate - ⭐⭐</h3>
+                            <h3 class="hotel-h3">Starting From LKR 6000.00</h3>
+
+                            <a href="https://github.com/oshada1999/FamilyHospital-layered" class="main_button">View<i
+                                    class="uil uil-arrow-right"></i></a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="content swiper-slide" data-aos="flip-left">
+                        <div class="hotel-div">
+                            <img src="assets/images/th (6).jpg" alt="images/th (5).jpg"
+                                 class="main_images" data-aos="flip-left">
+                            <div>
+                                <h1 class="main_title">Anantara Hotel<br>
+                                    Sri Lanka,Western Province,Kaluthara</h1>
+                                <h3 class="hotel-h3">Star Rate - ⭐⭐⭐⭐⭐</h3>
+                                <h3 class="hotel-h3">Starting From LKR 4500.00</h3>
+
+                                <a href="https://github.com/oshada1999/Hostel-Management-System" class="main_button">View<i
+                                        class="uil uil-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content swiper-slide" data-aos="flip-left">
+                        <div class="hotel-div">
+                            <img src="assets/images/th (4).jpg" alt="images/th (5).jpg"
+                                 class="main_images" data-aos="flip-left">
+                            <div>
+                                <span class="projects_subtitle"></span>
+                                <h1 class="main_title">Heritage Hotel <br> Sri Lanka,Central Province,Ella</h1>
+                                <h3 class="hotel-h3">Star Rate - ⭐⭐⭐</h3>
+                                <h3 class="hotel-h3">Starting From LKR 5000.00</h3>
+                                <a href="https://github.com/oshada1999/MyProfile" class="main_button">View<i
+                                        class="uil uil-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content swiper-slide" data-aos="flip-left">
+                        <div class="hotel-div">
+                            <img src="assets/images/th (5).jpg" alt="images/th (5).jpg"
+                                 class="main_images" data-aos="flip-left">
+                            <div>
+                                <span class="projects_subtitle"></span>
+                                <h1 class="main_title">Light House Hotel <br> Sri Lanka,South Province,Galle</h1>
+                                <h3 class="hotel-h3">Star Rate - ⭐⭐⭐⭐</h3>
+                                <h3 class="hotel-h3">Starting From LKR 7000.0</h3>
+
+                                <a href="#" class="main_button">View<i class="uil uil-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next">
+                    <i class="uil uil-arrow-circle-right"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-arrow-circle-left"></i>
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vehicle" id="vehicle">
+        <div class="heading">
+            <h2 data-aos="zoom-in-up">Vehicles.</h2>
+        </div>
+
+        <div class="container section_border">
+            <div class="main_container swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="content swiper-slide" id="vehicleC" data-aos="flip-left">
+                        <div class="hotel-div">
+                            <img src="assets/images/th (7).jpg" alt="images/th (5).jpg"
+                                 class="main_images" data-aos="flip-left">
+
+                            <h1 class="main_title">Suzuki Celerio<br>
+                                Seating Capacity - 4</h1>
+                            <h3 class="hotel-h3">Fee for Day LKR 6000.00</h3>
+                            <a href="https://github.com/oshada1999/FamilyHospital-layered" class="main_button">View<i
+                                    class="uil uil-arrow-right"></i></a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="content swiper-slide" data-aos="flip-left">
+                        <div class="hotel-div">
+                            <img src="assets/images/th (8).jpg" alt="images/th (5).jpg"
+                                 class="main_images" data-aos="flip-left">
+                            <div>
+                                <h1 class="main_title">Toyota Yaris<br>
+                                    Seating Capacity - 3</h1>
+                                <h3 class="hotel-h3">Fee for Day LKR 7000.00</h3>
+                                <a href="https://github.com/oshada1999/Hostel-Management-System" class="main_button">View<i
+                                        class="uil uil-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content swiper-slide" data-aos="flip-left">
+                        <div class="hotel-div">
+                            <img src="assets/images/Toyota-Aqua-1.jpg" alt="images/th (5).jpg"
+                                 class="main_images" data-aos="flip-left">
+                            <div>
+                                <h1 class="main_title">Toyota Aqua<br>
+                                    Seating Capacity - 4</h1>
+                                <h3 class="hotel-h3">Fee for Day LKR 8000.00</h3>
+                                <a href="https://github.com/oshada1999/MyProfile" class="main_button">View<i
+                                        class="uil uil-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content swiper-slide" data-aos="flip-left">
+                        <div class="hotel-div">
+                            <img src="assets/images/25c5ef27-suzuki-wagon-r-25th.jpg" alt="images/th (5).jpg"
+                                 class="main_images" data-aos="flip-left">
+                            <div>
+                                <h1 class="main_title">Suzuki Wagon R Synergy<br>
+                                    Seating Capacity - 3</h1>
+                                <h3 class="hotel-h3">Fee for Day LKR 4500.00</h3>
+                                <a href="#" class="main_button">View<i class="uil uil-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next">
+                    <i class="uil uil-arrow-circle-right"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-arrow-circle-left"></i>
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!--Gallery-->
+    <section class="gallery-page">
+        <div class="heading">
+            <h2 data-aos="zoom-in">Locations</h2>
+        </div>
+        <div class="gallery">
+            <div class="boxG" data-aos="flip-left"></div>
+            <div class="boxG" data-aos="flip-up"></div>
+            <div class="boxG" data-aos="flip-left"></div>
+            <div class="boxG" data-aos="flip-right"></div>
+            <div class="boxG" data-aos="flip-left"></div>
+            <div class="boxG" data-aos="flip-left"></div>
+            <div class="boxG" data-aos="flip-down"></div>
+        </div>
+    </section>
+    <!--Contact-->
+    <section class="contact" id="contact">
+        <div class="heading">
+            <h2 data-aos="fade-up">Contact<span>Us.</span></h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-row">
+                <div class="contact-left">
+                    <div class="contact-a" data-aos="fade-down-right" data-aos-duration="1000">
+                        <p><i class="fa-solid fa-user"></i>Next Travel</p>
+                    </div>
+                    <div class="contact-a" data-aos="fade-down-right" data-aos-duration="1500">
+                        <a href="mailto:chathurahewage1999@gmail.com?subject=Request%20more%20details&body=Hello%20please%20send%20about%20the%20project&cc=info@ijse.lk&bcc=hello@ijse.lk"><i
+                                class="fa-solid fa-paper-plane"></i>nextTravel@gmail.com</a><br>
+                    </div>
+                    <div class="contact-a" data-aos="fade-down-right" data-aos-duration="2000">
+                        <a href="tel:+94702229087"><i class="fa-solid fa-phone"></i>+94702229087</a><br>
+                    </div>
+                    <div class="contact-a" data-aos="fade-down-right" data-aos-duration="2500">
+                        <a href="tel:+94702229087"><i class="fa-brands fa-square-whatsapp"></i>+94702229087</a><br>
+                    </div>
+                </div>
+                <div class="contact-right">
+
+                    <form class="contact-form" action="mailto:chathurahewage1999@gmail.com" method="post">
+                        <p data-aos="zoom-in-down" data-aos-duration="1000">You have a any question please <span>contact Us.</span>
+                        </p>
+                        <input type="text" name="name" placeholder="Your Name" required data-aos="zoom-in-down"
+                               data-aos-duration="1500">
+                        <input type="email" name="email" placeholder="Your Email" required data-aos="zoom-in-down"
+                               data-aos-duration="2000">
+                        <textarea id="message" rows="10" cols="30" name="Massage" placeholder="Your Massage"
+                                  data-aos="zoom-in-down" data-aos-duration="2500"></textarea><br>
+                        <button type="submit" class="contact-btn" data-aos="zoom-in-down" data-aos-duration="3000">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+<div class="fab-container" id="contact-icon">
+    <div class="fab-btn fab-icon-holder">
+        <i class="fa-solid" id="optQuestion"></i>
+        <a href="tel:+94702229087" id="optCall"><i class="fa-solid fa-phone"></i></a>
+    </div>
+</div>
+
+<footer id="footer">
+    <section class="footer">
+        <div class="footer-left">
+            <div>
+                <h1 class="footer-h1">Next Travel (pvt)</h1>
+                <h3 class="footer-h3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, sit</h3>
+            </div>
+
+        </div>
+        <div class="footer-center">
+            <div>
+                <a href="https://www.linkedin.com/in/chathura-hewage-114565236/">
+                    <img src="assets/images/icons8-linkedin-256.png" alt="icons8-linkedin-50.png">
+                </a>
+
+                <a href="https://www.facebook.com/chathura.hewage.9/">
+                    <img src="assets/images/icons8-facebook-150.png" alt="icons8-facebook-50.png">
+                </a>
+
+                <a href="tel:+94702229087">
+                    <img src="assets/images/icons8-whatsapp-100.png" alt="icons8-github-50.png">
+                </a>
+                <a href="https://www.youtube.com/channel/UCPKD-KclMafbJxeD8R4_aag">
+                    <img src="assets/images/icons8-youtube-250 (1).png" alt="icons8-youtube-250.png">
+                </a>
+            </div>
+            <div>
+                <p>Copyright © 2023 -Oshada hewage <br>
+                    All Rights Reserved</p>
+            </div>
+
+        </div>
+        <div class="footer-right">
+            <div>
+                <h3><i class="fa-sharp fa-solid fa-location-dot"></i>Address</h3>
+                <p>147/1 silva rode,<br>kottawa,<br>colombo 06.</p>
+                <h3><i class="fa-solid fa-phone"></i>Phone</h3>
+                <p>+940702229087</p>
+            </div>
+        </div>
+    </section>
+</footer>
+<!--import AOS lib js-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="assets/lib/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<!--swiper JS-->
+<script src="assets/lib/swiper-bundle.min.js"></script>
+<script src="assets/js/Style.js"></script>
+<script src="controller/SigninController.js"></script>
+<script src="controller/Navigation.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
