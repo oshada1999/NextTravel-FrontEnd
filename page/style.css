@@ -761,10 +761,11 @@ form .backBtn i{
 form .buttons{
     display: flex;
     align-items: center;
+
 }
 
-form .buttons button , .backBtn{
-    margin-right: 14px;
+.second .buttons button , .backBtn{
+    margin-right: 5px;
 }
 .savebtn{
     background: #3CA6A6;
@@ -777,6 +778,130 @@ form .buttons button , .backBtn{
 .content main .bottom-data .orders table td div button{
     margin-right: 5px;
 }
+/*add Hotel*/
+#hotel-register{
+    position: relative;
+    left: 280px;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+    z-index: 10000;
+}
+.hotel-container{
+    position: fixed;
+    max-width: 900px;
+    min-height: 660px;
+    width: 100%;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: -192px;
+    margin-left: 30px;
+    padding: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.hotel-container h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.hotel-container form {
+    position: relative;
+    margin-top: 16px;
+    min-height: 250px;
+}
+.hotel-container form .form{
+    position: absolute;
+    background: white;
+
+}
+/*.vehicle-container form .second{
+    opacity: 0;
+    pointer-events: none;
+}*/
+
+.hotel-container form .details-personal {
+    /*margin-top: 30px;*/
+}
+
+.hotel-container form .title {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: black;
+}
+
+.hotel-container form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+/*.combo-box{
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+    cursor: pointer;
+
+}*/
+.hotel-container form button, .backBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    margin: 25px 20px;
+    background-color: #0c63e4;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.hotel-container form button, .backBtn:hover{
+    background-color: #3883f3;
+}
+.hotel-container .first .buttons-vehicle{
+    display: flex;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+
+}
+.hotel-container .first .buttons-vehicle .btnDelete{
+    background-color: #b62d2d;
+    margin-left: 500px;
+    cursor: pointer;
+}
+.hotel-container .first .buttons-vehicle .btnDelete i{
+    font-size: 15px;
+}
+.hotel-container .first .buttons-vehicle .btnDelete:hover{
+    background-color: red;
+}
+.hotel-container .first .buttons-vehicle .nextBtn:hover{
+    background-color: #6197e7;
+}
+.hotel-container form button,
+.hotel-container form .backBtn{
+    font-size: 14px;
+    font-weight: 400;
+}
+/*end Hotel*/
+.second .buttons button:hover{
+    background-color: #6197e7;
+}
+
+
     /*add New User*********************************************/
 #user-register {
     position: relative;

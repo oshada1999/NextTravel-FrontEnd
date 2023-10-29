@@ -5,6 +5,7 @@ $('#hotel').css({display: 'none'});
 $('#package').css({display: 'none'});
 $(".register-container").css({display: 'none'});
 $(".vehicle-container").css({display: 'none'});
+$(".hotel-container").css({display: 'none'});
 
 
 

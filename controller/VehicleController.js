@@ -443,7 +443,7 @@ function updateVehicle() {
 function deleteVehicle() {
     var vehicleId=$('#vehicleIDLbl').text();
     swal({
-        title: "Delete User",
+        title: "Delete Vehicle",
         text: "Are you sure you want to delete this Vehicle?",
         icon: "warning",
         buttons: true,
