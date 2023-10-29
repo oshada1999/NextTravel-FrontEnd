@@ -2,11 +2,9 @@ var userBaseURL = "http://localhost:8080/app/api/v1/user";
 
 var usernamePattern = /^[a-zA-Z0-9]{3,20}$/;
 var passwordPattern = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
-var agePattern = /^(?:\d{1,2}|1[01]\d|120)$/;
 var mobilePattern = /^0[0-9]{2}[1-9][0-9]{6}$/;
 var emailPattern = /^[0-9A-Z a-z$&#]{3,30}(@gmail.com)|(@yahoo.com)$/;
 var addressPattern = /^[0-9A-Z a-z,/:]{4,50}$/;
-var genderPattern = /^(male|female|other|prefer not to say)$/;
 var nicPattern = /^\d{9}[VvXx]$/;
 
 $('#user-UserName').keyup(function (e) {
@@ -26,14 +24,7 @@ $('#user-Password').keyup(function (e) {
         $('#user-Password').css('border', '2px solid green')
     }
 });
-$('#user-Age').keyup(function (e) {
-    let password = $('#user-Age').val();
-    if (!agePattern.test(password)) {
-        $('#user-Age').css('border', '2px solid red');
-    } else {
-        $('#user-Age').css('border', '2px solid green')
-    }
-});
+
 $('#user-Contact').keyup(function (e) {
     let password = $('#user-Contact').val();
     if (!mobilePattern.test(password)) {
@@ -58,14 +49,7 @@ $('#user-Address').keyup(function (e) {
         $('#user-Address').css('border', '2px solid green')
     }
 });
-$('#user-Gender').keyup(function (e) {
-    let password = $('#user-Gender').val();
-    if (!genderPattern.test(password)) {
-        $('#user-Gender').css('border', '2px solid red');
-    } else {
-        $('#user-Gender').css('border', '2px solid green')
-    }
-});
+
 $('#user-Nic').keyup(function (e) {
     let password = $('#user-Nic').val();
     if (!nicPattern.test(password)) {
@@ -81,11 +65,9 @@ $('#registerUser-btn').click(function (e) {
 function checkUserValidForSave() {
     !usernamePattern.test($('#user-UserName').val()) ? swal("Invalid UserName !", "Check Your UserName.", "warning") :
         !passwordPattern.test($('#user-Password').val()) ? swal("Invalid Password !", "Check Your Password.", "warning") :
-            !agePattern.test($('#user-Age').val()) ? swal("Invalid Age !", "Check Your Age.", "warning") :
                 !mobilePattern.test($('#user-Contact').val()) ? swal("Invalid Mobile Number !", "Check Your Mobile Number.", "warning") :
                     !emailPattern.test($('#user-Email').val()) ? swal("Invalid Email !", "Check Your Email.", "warning") :
                         !addressPattern.test($('#user-Address').val()) ? swal("Invalid Address !", "Check Your Address.", "warning") :
-                            !genderPattern.test($('#user-Gender').val()) ? swal("Invalid Gender !", "Check Your Gender.", "warning") :
                                 !nicPattern.test($('#user-Nic').val()) ? swal("Invalid Nic !", "Check Your Nic.", "warning") : saveUser();
 }
 
@@ -96,22 +78,18 @@ $('#update-btn').click(function (e) {
 function checkUserValidForUpdate() {
     !usernamePattern.test($('#user-UserName').val()) ? swal("Invalid UserName !", "Check Your UserName.", "warning") :
         !passwordPattern.test($('#user-Password').val()) ? swal("Invalid Password !", "Check Your Password.", "warning") :
-            !agePattern.test($('#user-Age').val()) ? swal("Invalid Age !", "Check Your Age.", "warning") :
                 !mobilePattern.test($('#user-Contact').val()) ? swal("Invalid Mobile Number !", "Check Your Mobile Number.", "warning") :
                     !emailPattern.test($('#user-Email').val()) ? swal("Invalid Email !", "Check Your Email.", "warning") :
                         !addressPattern.test($('#user-Address').val()) ? swal("Invalid Address !", "Check Your Address.", "warning") :
-                            !genderPattern.test($('#user-Gender').val()) ? swal("Invalid Gender !", "Check Your Gender.", "warning") :
                                 !nicPattern.test($('#user-Nic').val()) ? swal("Invalid Nic !", "Check Your Nic.", "warning") : updateUser();
 }
 
 function clearForm() {
     $('#user-UserName').val("");
     $('#user-Password').val("");
-    $('#user-Age').val("");
     $('#user-Contact').val("");
     $('#user-Email').val("");
     $('#user-Address').val("");
-    $('#user-Gender').val("");
     $('#user-Nic').val("");
     $('#user-Profile').val("");
 }
@@ -174,7 +152,6 @@ function closePopupWindow() {
     $('#user-Contact').val("");
     $('#user-Email').val("");
     $('#user-Address').val("");
-    $('#user-Gender').val("");
     $('#user-Nic').val("");
     $('#user-Profile').val("");
 }

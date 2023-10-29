@@ -897,6 +897,129 @@ form .buttons{
     font-weight: 400;
 }
 /*end Hotel*/
+
+/*guide start*/
+#guide-register{
+    position: relative;
+    left: 280px;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+    z-index: 10000;
+}
+.guide-container{
+    position: fixed;
+    max-width: 900px;
+    min-height: 482px;
+    width: 100%;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: -122px;
+    margin-left: 30px;
+    padding: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.guide-container h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.guide-container form {
+    position: relative;
+    margin-top: 16px;
+    min-height: 250px;
+}
+.guide-container form .form{
+    position: absolute;
+    background: white;
+
+}
+/*.vehicle-container form .second{
+    opacity: 0;
+    pointer-events: none;
+}*/
+
+.guide-container form .details-personal {
+    /*margin-top: 30px;*/
+}
+
+.guide-container form .title {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: black;
+}
+
+.guide-container form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.guide-container form button, .backBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    margin: 25px;
+    background-color: #0c63e4;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.guide-container .first .buttons-vehicle{
+    display: flex;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+
+}
+.guide-container .first .buttons-vehicle .btnDelete{
+    background-color: #b62d2d;
+    margin-left: 498px;
+    cursor: pointer;
+}
+.guide-container .first .buttons-vehicle .btnDelete i{
+    font-size: 15px;
+}
+.guide-container .first .buttons-vehicle .btnDelete:hover{
+    background-color: red;
+}
+.guide-container form button,
+.guide-container form .backBtn{
+    font-size: 14px;
+    font-weight: 400;
+}
+.input-fieldsGuide input {
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+form .fields .input-fieldsGuide {
+    display: flex;
+    width: calc(100% / 2 - 80px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+.input-fieldsGuide label {
+    font-size: 12px;
+    font-weight: 500;
+}
+/*guide end*/
 .second .buttons button:hover{
     background-color: #6197e7;
 }

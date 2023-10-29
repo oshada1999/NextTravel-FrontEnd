@@ -63,10 +63,10 @@ function checkVehicleDetailsField() {
                 !fee1km.test($('#vehicleFee1km').val()) ? swal("Invalid Fee for 1km !", "Check  Fee for 1km.", "warning") :
                     !fee1day.test($('#vehicleFeeDay').val()) ? swal("Invalid Fee for 1day !", "Check  Fee for 1day.", "warning") :
                         !driverName.test($('#driverName').val()) ? swal("Invalid Driver Name!", "Check  Driver Name.", "warning") :
-                            !mobilePattern.test($('#driverContact').val()) ? swal("Invalid Mobile NUmber !", "Check  Mobile Number.", "warning") : navigateToNext();
+                            !mobilePattern.test($('#driverContact').val()) ? swal("Invalid Mobile NUmber !", "Check  Mobile Number.", "warning") : navigateToNextVehicleImg();
 }
 
-function navigateToNext() {
+function navigateToNextVehicleImg() {
     $('.second').css({display: 'block'});
     $('.first').css({display: 'none'});
 }

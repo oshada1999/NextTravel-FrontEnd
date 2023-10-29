@@ -101,7 +101,7 @@ function checkHotelDetailsField() {
                             !priceHotel1.test($('#room-opt1').val()) ? swal("Invalid Price !", "Check  Price opt-1.", "warning") :
                                 !priceHotel1.test($('#room-opt2').val()) ? swal("Invalid Price !", "Check  Price opt-2.", "warning") :
                                     !priceHotel1.test($('#room-opt3').val()) ? swal("Invalid Price !", "Check  Price opt-3.", "warning") :
-                                        !priceHotel1.test($('#room-opt4').val()) ? swal("Invalid Price !", "Check  Price opt-4.", "warning") :navigateToNext();
+                                        !priceHotel1.test($('#room-opt4').val()) ? swal("Invalid Price !", "Check  Price opt-4.", "warning") :navigateToNextHotelImg();
 }
 $('#addHotel-btn').click(function () {
     $(".bottom-data").css({display: 'none'});
@@ -124,7 +124,7 @@ $('.backBtn').click(function () {
     $('.second').css({display: 'none'});
     $('.first').css({display: 'block'});
 });
-function navigateToNext() {
+function navigateToNextHotelImg() {
     $('.second').css({display: 'block'});
     $('.first').css({display: 'none'});
 }

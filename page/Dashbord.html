@@ -440,26 +440,33 @@
             <div class="orders">
                 <div class="header">
                     <i class='bx bx-receipt'></i>
-                    <h3>Recent Orders</h3>
-                    <i class='bx bx-filter'></i>
-                    <i class='bx bx-search'></i>
+                    <h3>Guide</h3>
+                    <input type="text" id="search-guide" class="searchInput" placeholder="Search ID..">
+                    <i class='bx bx-search' id="searchGuide-btn"></i>
                 </div>
                 <table>
                     <thead>
                     <tr>
-                        <th>Package ID</th>
-                        <th>Category</th>
+                        <th>ID</th>
+                        <th>Guide Image</th>
+                        <th>NIC Front</th>
+                        <th>NIC Rear</th>
+                        <th>ID Front</th>
+                        <th>ID Rear</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>DOB</th>
+                        <th>Gender</th>
+                        <th>Contact</th>
+                        <th>Experience</th>
+                        <th>Day Value</th>
+                        <th>Email</th>
                         <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
+                        <th>Option</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
+                    <tbody id="tblGuide">
+                    <!--<tr>
                         <td>
                             <img src="">
                             <p>John Doe</p>
@@ -488,7 +495,7 @@
                         </td>
                         <td>14-08-2023</td>
                         <td><span class="status process">Processing</span></td>
-                    </tr>
+                    </tr>-->
                     </tbody>
                 </table>
             </div>
@@ -529,7 +536,7 @@
                         <th>Profile</th>
                         <th>Name</th>
                         <th>NIC</th>
-                        <th>Age</th>
+                        <th>DOB</th>
                         <th>Email</th>
                         <th>Gender</th>
                         <th>Contact</th>
@@ -664,8 +671,8 @@
                             <input type="password" id="user-Password" placeholder="Enter Password" required>
                         </div>
                         <div class="input-fields">
-                            <label>Age</label>
-                            <input type="number" id="user-Age" placeholder="Enter Age" required>
+                            <label>DOB</label>
+                            <input type="date" id="user-Age" placeholder="Enter Guide Dob" required>
                         </div>
                         <div class="input-fields">
                             <label>Mobile Number</label>
@@ -681,7 +688,10 @@
                         </div>
                         <div class="input-fields">
                             <label>Gender</label>
-                            <input type="text" id="user-Gender" placeholder="Enter Gender" required>
+                            <select id="user-Gender" class="combo-box" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                         </div>
                         <div class="input-fields">
                             <label>NIC Number</label>
@@ -1007,6 +1017,137 @@
         </form>
     </div>
 </main>
+<main id="guide-register">
+    <div class="guide-container icon">
+                <span class=" icon-close">
+                    <ion-icon name="close"></ion-icon>
+                </span>
+
+        <h2 id="guide-title"></h2>
+        <form id="guide-Form" action="/processForm" method="post">
+            <div class="form first">
+                <div class="details-personal personal">
+                    <div id="edit-guideUI">
+                        <span class="title"> Guide ID  :<label id="guideIDLbl">Guide ID</label></span>
+                    </div>
+
+                    <span class="title" id="reg-guideUI">Guide Details</span>
+                    <div class="fields">
+                        <div class="input-fields">
+                            <label>Guide Name</label>
+                            <input type="text" id="guideName" placeholder="Enter Guide Name" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Guide Address</label>
+                            <input type="text" id="guideAddress" placeholder="Enter Guide Address" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Guide DOB</label>
+                            <input type="date" id="guideDob" placeholder="Enter Guide Dob" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Gender</label>
+                            <select id="guideGender" class="combo-box" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Guide Contact</label>
+                            <input type="tel" id="guideContact" placeholder="Enter Guide Contact" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Experience</label>
+                            <select id="guideExperience" class="combo-box" required>
+                                <option value="1 Year">1 Year </option>
+                                <option value="Less 1 Year">Less 1 Year </option>
+                                <option value="Less 5 Year">Less 5 Year </option>
+                                <option value="Higher 5 Year">Higher 5 Year</option>
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Guide Day Value(LKR)</label>
+                            <input type="text" id="guideDayValue" placeholder="Enter Guide Day Value" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Guide Email</label>
+                            <input type="text" id="guideEmail" placeholder="Enter Guide Email" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Guide Status</label>
+                            <select id="guideStatus" class="combo-box" required>
+                                <option value="Available">Available</option>
+                                <option value="Reserved">Reserved</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="buttons-vehicle">
+                        <button class="nextBtn" id="nextGuide-btn" type="button">
+                            <span class="btnText">Next</span>
+                            <i class='uil uil-navigator'></i>
+                        </button>
+                        <button class="btnDelete" id="deleteGuide-btn" type="button">
+                            <span class="btnText"><i class='bx bxs-trash-alt'></i> Delete</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form second">
+                <div class="details-personal photo inputStyle">
+
+                    <span class="title">Guide Image Details</span>
+                    <div class="fields guide-img">
+                        <div class="input-fieldsGuide">
+                            <label>NIC Image Front</label>
+                            <input type="file" id="guideNicFront" required>
+                        </div>
+                        <div class="input-fieldsGuide">
+                            <label>NIC Image Rear</label>
+                            <input type="file" id="guideNicRear" required>
+
+                        </div>
+                        <div class="input-fieldsGuide">
+                            <label>ID Image Front</label>
+                            <input type="file" id="guideIdFront" required>
+
+                        </div>
+                        <div class="input-fieldsGuide">
+                            <label>ID Image Rear</label>
+                            <input type="file" id="guideIdRear" required>
+
+                        </div>
+                        <div class="input-fieldsGuide">
+                            <label>Guide Image</label>
+                            <input type="file" id="guideImage" required>
+
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class='uil uil-navigator'></i>
+                            <span class="btnText">Back</span>
+
+                        </div>
+                        <button class="savebtn" id="registerGuide-btn" type="button">
+                            <span class="btnText">Register</span>
+                            <i class='uil uil-navigator'></i>
+                        </button>
+                        <button class="savebtn" id="updateGuide-btn" type="button">
+                            <span class="btnText">Update</span>
+                            <i class='uil uil-navigator'></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</main>
 <script src="/assets/lib/jquery-3.6.4.min.js"></script>
 <script src="dashbord.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -1016,6 +1157,7 @@
 <script src="/controller/UserController.js"></script>
 <script src="/controller/VehicleController.js"></script>
 <script src="/controller/HotelController.js"></script>
+<script src="/controller/GuideController.js"></script>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
