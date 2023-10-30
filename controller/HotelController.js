@@ -3,11 +3,12 @@ var hotelBaseURL = "http://localhost:8080/app/api/v1/hotel";
 $('.second').css({display: 'none'});
 $('.first').css({display: 'block'});
 
-var hotelName = /^[A-Za-z]+$/;
-var hotelLocation = /^[A-Za-z]+$/;
+var hotelName = /^[A-Za-z\s'&.,-]+$/;
+var hotelLocation = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
 var emailPattern = /^[0-9A-Z a-z$&#]{3,30}(@gmail.com)|(@yahoo.com)$/;
 var mobilePattern = /^0[0-9]{2}[1-9][0-9]{6}$/;
 var priceHotel1 = /^\$?\d+(?:\.\d{2})?$/;
+var addressPattern = /^[0-9A-Z a-z,/:]{4,50}$/;
 
 $('#hotelName').keyup(function (e) {
     let Name = $('#hotelName').val();
@@ -19,7 +20,7 @@ $('#hotelName').keyup(function (e) {
 });
 $('#hotelLocation').keyup(function (e) {
     let location = $('#hotelLocation').val();
-    if (!hotelLocation.test(location)) {
+    if (!addressPattern.test(location)) {
         $('#hotelLocation').css('border', '2px solid red');
     } else {
         $('#hotelLocation').css('border', '2px solid green')
@@ -93,7 +94,7 @@ $('#nextHotel-btn').click(function () {
 });
 function checkHotelDetailsField() {
     !hotelName.test($('#hotelName').val()) ? swal("Invalid Hotel !", "Check Your Hotel.", "warning") :
-        !hotelLocation.test($('#hotelLocation').val()) ? swal("Invalid Location !", "Check  Location.", "warning") :
+        !addressPattern.test($('#hotelLocation').val()) ? swal("Invalid Location !", "Check  Location.", "warning") :
             !hotelLocation.test($('#hotelGoogleLocation').val()) ? swal("Invalid Google Location!", "Check  SGoogle Location.", "warning") :
                 !emailPattern.test($('#hotelEmail').val()) ? swal("Invalid Email Address!", "Check Email Address.", "warning") :
                     !mobilePattern.test($('#hotelContact1').val()) ? swal("Invalid Phone Number!", "Check  Phone 1 Number.", "warning") :
@@ -239,7 +240,7 @@ function loadAllHotels() {
                             <td>${hotel.hotelName}</td>
                             <td>${hotel.hotelCategory}</td>
                             <td>${hotel.hotelLocation}</td>
-                            <td>${hotel.hotelGmapLocation}</td>
+                            <td><a href="${hotel.hotelGmapLocation}"><span class="material-symbols-outlined">location_on</span>Location</a></td>
                             <td>${hotel.hotelEmail}</td>
                             <td>${hotel.hotelContact.hotelContact_1}</td>
                             <td>${hotel.hotelContact.hotelContact_2}</td>
@@ -277,7 +278,7 @@ function bindHotelRowBindEvent() {
         var hotelName = $(this).children().eq(2).text();
         var hotelCategory = $(this).children().eq(3).text();
         var hotelLocation = $(this).children().eq(4).text();
-        var hotelGmapLocation = $(this).children().eq(5).text();
+        var hotelGmapLocation = $(this).children().find('a').attr('href');
         var hotelEmail = $(this).children().eq(6).text();
         var hotelContact1 = $(this).children().eq(7).text();
         var hotelContact2 = $(this).children().eq(8).text();
@@ -453,7 +454,7 @@ function searchHotel() {
                             <td>${hotel.hotelName}</td>
                             <td>${hotel.hotelCategory}</td>
                             <td>${hotel.hotelLocation}</td>
-                            <td>${hotel.hotelGmapLocation}</td>
+                            <td><a href="${hotel.hotelGmapLocation}"><span class="material-symbols-outlined">location_on</span>Location</a></td>
                             <td>${hotel.hotelEmail}</td>
                             <td>${hotel.hotelContact.hotelContact_1}</td>
                             <td>${hotel.hotelContact.hotelContact_2}</td>

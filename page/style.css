@@ -479,8 +479,8 @@ body {
 }
 
 .content main .bottom-data .orders table td {
-    align-items: center;
-    text-align: center;
+    /*align-items: center;*/
+    /*text-align: center;*/
     border-left: 1px solid rgba(178, 174, 174, 0.89);
     padding: 16px 30px;
 }
@@ -778,6 +778,112 @@ form .buttons{
 .content main .bottom-data .orders table td div button{
     margin-right: 5px;
 }
+/*Add Package*/
+
+#package-register{
+    position: relative;
+    left: 280px;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+    z-index: 10000;
+}
+.package-container {
+    position: fixed;
+    max-width: 1366px;
+    min-height: 663px;
+    width: 100%;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: -196px;
+    margin-left: -194px;
+    padding: 30px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.package-container h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.package-container form {
+    position: relative;
+    margin-top: 16px;
+    min-height: 250px;
+}
+.package-container form .form{
+    position: absolute;
+    background: white;
+
+}
+
+.package-container form .title {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: black;
+}
+form .fields .input-fieldsPackage {
+    display: flex;
+    width: calc(100% / 2 - 54px);
+    flex-direction: column;
+    margin: 4px 27px;
+}
+
+.package-container form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.package-container form button, .backBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    margin: 25px 0;
+    background-color: #0c63e4;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.package-container .first .buttons-package{
+    display: flex;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+
+}
+.package-container .first .buttons-package .btnDeletePackage{
+    background-color: #b62d2d;
+    margin-left: 400px;
+    cursor: pointer;
+}
+.package-container .first .buttons-package .btnDeletePackage i{
+    font-size: 15px;
+}
+.package-container .first .buttons-package .btnDeletePackage:hover{
+    background-color: red;
+}
+.package-container form button,
+.package-container form .backBtn{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/*End Package*/
+
+
 /*add Hotel*/
 #hotel-register{
     position: relative;

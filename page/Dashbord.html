@@ -7,6 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Next Travel pvt.</title>
 </head>
 
@@ -194,14 +195,14 @@
             <div class="orders">
                 <div class="header">
                     <i class='bx bx-receipt'></i>
-                    <h3>Recent Orders</h3>
-                    <i class='bx bx-filter'></i>
-                    <i class='bx bx-search'></i>
+                    <h3>Packages</h3>
+                    <input type="text" id="search-package" class="searchInput" placeholder="Search By ID..">
+                    <i class='bx bx-search' id="searchPackage-btn"></i>
                 </div>
                 <table>
                     <thead>
                     <tr>
-                        <th>Package ID</th>
+                        <th> ID</th>
                         <th>Category</th>
                         <th>Status</th>
                         <th>Status</th>
@@ -212,103 +213,8 @@
                         <th>Status</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td>cvvsdfvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td>cvvsdfvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td>cvvsdfvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td>cvvsdfvqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status process">Processing</span></td>
-                    </tr>
+                    <tbody id="tblPackage">
+
                     </tbody>
                 </table>
             </div>
@@ -466,36 +372,6 @@
                     </tr>
                     </thead>
                     <tbody id="tblGuide">
-                    <!--<tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status process">Processing</span></td>
-                    </tr>-->
                     </tbody>
                 </table>
             </div>
@@ -912,11 +788,10 @@
                             <label>Category</label>
                             <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
                             <select id="hotelCategory" class="combo-box" required>
-                                <option value="3 Star and 2 Star">3 Star and 2 Star</option>
-                                <option value="3 Star and 4 Star">3 Star and 4 Star</option>
-                                <option value="4 Star and 5 Star">4 Star and 5 Star</option>
+                                <option value="2 Star">2 Star</option>
+                                <option value="3 Star">3 Star</option>
+                                <option value="4 Star">4 Star</option>
                                 <option value="5 Star">5 Star</option>
-                                <!-- Add more options as needed -->
                             </select>
                         </div>
                         <div class="input-fields">
@@ -1059,9 +934,9 @@
                         <div class="input-fields">
                             <label>Experience</label>
                             <select id="guideExperience" class="combo-box" required>
-                                <option value="1 Year">1 Year </option>
-                                <option value="Less 1 Year">Less 1 Year </option>
-                                <option value="Less 5 Year">Less 5 Year </option>
+                                <option value="1 Year">1 Year</option>
+                                <option value="Less 1 Year">Less 1 Year</option>
+                                <option value="Less 5 Year">Less 5 Year</option>
                                 <option value="Higher 5 Year">Higher 5 Year</option>
                             </select>
                         </div>
@@ -1158,6 +1033,7 @@
 <script src="/controller/VehicleController.js"></script>
 <script src="/controller/HotelController.js"></script>
 <script src="/controller/GuideController.js"></script>
+<script src="/controller/DashBoradPackage.js"></script>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
