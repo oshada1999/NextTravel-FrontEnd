@@ -1,4 +1,4 @@
-var hotelBaseURL = "http://localhost:8080/app/api/v1/hotel";
+var hotelBaseURL = "http://localhost:8765/hotel-service/app/api/v1/hotel";
 
 $('.second').css({display: 'none'});
 $('.first').css({display: 'block'});

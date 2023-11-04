@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ComboBox Example with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h2>Select a Color:</h2>
+<input type="text" id="colorInput" placeholder="Type to search...">
+<select id="colorDropdown">
+    <option value="Red">Red</option>
+    <option value="Green">Green</option>
+    <option value="Blue">Blue</option>
+    <option value="Yellow">Yellow</option>
+    <option value="Orange">Orange</option>
+</select>
+
+<script>
+    $(document).ready(function() {
+        // Get references to the input field and the dropdown
+        const $colorInput = $("#colorInput");
+        const $colorDropdown = $("#colorDropdown");
+
+        // Filter the dropdown options based on user input
+        $colorInput.on("input", function() {
+            const filterText = $colorInput.val().toLowerCase();
+            $colorDropdown.find("option").each(function() {
+                const optionText = $(this).text().toLowerCase();
+                if (optionText.includes(filterText)) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

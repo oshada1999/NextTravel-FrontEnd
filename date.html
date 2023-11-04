@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date Difference Calculator</title>
+</head>
+<body>
+<h1>Date Difference Calculator</h1>
+
+<label for="date1">Date 1:</label>
+<input type="date" id="date1">
+
+<label for="date2">Date 2:</label>
+<input type="date" id="date2">
+
+<button onclick="calculateDateDifference()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+    function calculateDateDifference() {
+        var date1Input = document.getElementById("date1").value;
+        var date2Input = document.getElementById("date2").value;
+
+        var date1 = new Date(date1Input);
+        var date2 = new Date(date2Input);
+
+        var timeDiff = Math.abs(date2 - date1);
+        var daysDifference = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+        document.getElementById("result").textContent = `The number of days between the two dates is ${daysDifference} days.`;
+    }
+</script>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-var guideBaseURL = "http://localhost:8080/app/api/v1/guide";
+var guideBaseURL = "http://localhost:8765/guide-service/app/api/v1/guide";
 
 $('.second').css({display: 'none'});
 $('.first').css({display: 'block'});
@@ -7,7 +7,7 @@ var addressPattern = /^[0-9A-Z a-z,/:]{4,50}$/;
 var guideNamePattern = /^[A-Za-z '-]+$/;
 var mobilePattern = /^0[0-9]{2}[1-9][0-9]{6}$/;
 var GuideDayPrice = /^\d+(?:\.\d{2})?$/;
-const dobPattern = /^\d{4}-\d{2}-\d{2}$/;
+var dobPattern1 = /^\d{4}-\d{2}-\d{2}$/;
 var emailPattern = /^[0-9A-Z a-z$&#]{3,30}(@gmail.com)|(@yahoo.com)$/;
 
 $('#guideName').keyup(function (e) {
@@ -56,13 +56,13 @@ $('#nextGuide-btn').click(function () {
 });
 
 function checkGuideDetailsField() {
-    console.log($('#guideDob').val());
     !guideNamePattern.test($('#guideName').val()) ? swal("Invalid Guide Name !", "Check Your Guide Name.", "warning") :
         !addressPattern.test($('#guideAddress').val()) ? swal("Invalid Address !", "Check  Address.", "warning") :
             !mobilePattern.test($('#guideContact').val()) ? swal("Invalid Contact!", "Check Contact.", "warning") :
-            !dobPattern.test($('#guideDob').val()) ? swal("Invalid Dob!", "Check Dob.", "warning") :
-                    !emailPattern.test($('#guideEmail').val()) ? swal("Invalid Email!", "Check Email.", "warning")  :navigateToNextGuideImg();
+                !dobPattern1.test($('#guideDob').val()) ? swal("Invalid Dob!", "Check Dob.", "warning") :
+                    !emailPattern.test($('#guideEmail').val()) ? swal("Invalid Email!", "Check Email.", "warning") : navigateToNextGuideImg();
 }
+
 $('#addGuide-btn').click(function () {
     $(".bottom-data").css({display: 'none'});
     $(".btnDelete").css({display: 'none'});
@@ -73,12 +73,14 @@ $('#addGuide-btn').click(function () {
     $("#edit-guideUI").css({display: 'none'});
     $("#reg-guideUI").css({display: 'block'});
 });
+
 function windowBlurGuide() {
     $('.content').css({filter: "blur(5px)"});
     $('.sidebar').css({filter: "blur(5px)"});
     $(".guide-container").css({display: 'block'});
 
 }
+
 function closePopupWindowGuide() {
     $(".bottom-data").css({display: 'block'});
     $('.content').css({filter: "blur(0)"});
@@ -88,6 +90,7 @@ function closePopupWindowGuide() {
     $('.first').css({display: 'block'});
 
 }
+
 $('.backBtn').click(function () {
     $('.second').css({display: 'none'});
     $('.first').css({display: 'block'});
@@ -96,6 +99,7 @@ $(".icon-close").click(function () {
     closePopupWindowGuide();
     clearFormGuide()
 });
+
 function navigateToNextGuideImg() {
     $('.second').css({display: 'block'});
     $('.first').css({display: 'none'});
@@ -114,6 +118,7 @@ function clearFormGuide() {
     $('#guideIdRear').val("");
     $('#guideImage').val("");
 }
+
 $("#registerGuide-btn").click(function () {
     console.log("sve")
     saveGuide();
@@ -124,6 +129,7 @@ $("#updateGuide-btn").click(function () {
 $("#deleteGuide-btn").click(function () {
     deleteGuide();
 });
+
 function saveGuide() {
     var guideObj = {
         guideId: 0,
@@ -180,6 +186,7 @@ function saveGuide() {
         }
     });
 }
+
 loadAllGuides();
 
 function loadAllGuides() {
@@ -225,6 +232,7 @@ function loadAllGuides() {
         }
     });
 }
+
 function bindGuideRowBindEvent() {
     $(".btnDelete").css({display: 'block'});
     $("#tblGuide>tr").click(function () {
@@ -305,7 +313,6 @@ function bindGuideRowBindEvent() {
             .catch(error => console.error("Error setting input file:", error));
 
 
-
         $('#guideName').val(guideName);
         $('#guideAddress').val(guideAddress);
         $('#guideDob').val(guideDob);
@@ -320,6 +327,7 @@ function bindGuideRowBindEvent() {
         editGuideNavigation();
     });
 }
+
 function editGuideNavigation() {
     $(".bottom-data").css({display: 'none'});
     windowBlurGuide();
@@ -330,9 +338,10 @@ function editGuideNavigation() {
     $("#reg-guideUI").css({display: 'none'});
     bindGuideRowBindEvent();
 }
+
 function updateGuide() {
     var guideUpdateObj = {
-        guideId:$('#guideIDLbl').text() ,
+        guideId: $('#guideIDLbl').text(),
         guideName: $('#guideName').val(),
         guideAddress: $('#guideAddress').val(),
         guideDob: $('#guideDob').val(),
@@ -385,8 +394,9 @@ function updateGuide() {
         }
     });
 }
+
 function deleteGuide() {
-    var guideId=$('#guideIDLbl').text();
+    var guideId = $('#guideIDLbl').text();
     swal({
         title: "Delete Guide",
         text: "Are you sure you want to delete this Guide?",
@@ -414,14 +424,15 @@ function deleteGuide() {
             }
         });
 }
+
 $("#search-guide").on("keypress", function (e) {
     if (e.key == "Enter") {
         searchGuide();
     }
 });
 
-$(document).ready(function() {
-    $('#search-guide').on('input', function() {
+$(document).ready(function () {
+    $('#search-guide').on('input', function () {
         // Check if the input field is empty
         if ($(this).val() === '') {
             loadAllGuides();
@@ -478,7 +489,7 @@ function searchGuide() {
                 clearFormGuide();
             }
         },
-        error:function (ob){
+        error: function (ob) {
             swal("Oops", ob.responseJSON.message, "error");
         }
     });

@@ -1,12 +1,13 @@
-let baseURL = "http://localhost:8080/app/api/v1/user";
+let baseURL = "http://localhost:8765/user-service/app/api/v1/user";
+let baseURLAdmin = "http://localhost:8765/user-service/app/api/v1/admin";
 
 var usernamePattern = /^[a-zA-Z0-9]{3,20}$/;
-var passwordPattern = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
-var agePattern = /^(?:\d{1,2}|1[01]\d|120)$/;
+var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#])[A-Za-z\d!@#]{12,}$/;
+const agePattern = /^\d{4}-\d{2}-\d{2}$/;
 var mobilePattern = /^0[0-9]{2}[1-9][0-9]{6}$/;
 var emailPattern = /^[0-9A-Z a-z$&#]{3,30}(@gmail.com)|(@yahoo.com)$/;
 var addressPattern = /^[0-9A-Z a-z,/:]{4,50}$/;
-var genderPattern = /^(male|female|other|prefer not to say)$/;
+
 var nicPattern = /^\d{9}[VvXx]$/;
 
 $('#user-UserName').keyup(function (e) {
@@ -58,14 +59,7 @@ $('#user-Address').keyup(function (e) {
         $('#user-Address').css('border', '2px solid green')
     }
 });
-$('#user-Gender').keyup(function (e) {
-    let password = $('#user-Gender').val();
-    if (!genderPattern.test(password)) {
-        $('#user-Gender').css('border', '2px solid red');
-    } else {
-        $('#user-Gender').css('border', '2px solid green')
-    }
-});
+
 $('#user-Nic').keyup(function (e) {
     let password = $('#user-Nic').val();
     if (!nicPattern.test(password)) {
@@ -93,13 +87,13 @@ function checkUserValid() {
                 !mobilePattern.test($('#user-Contact').val()) ? swal("Invalid Mobile Number !", "Check Your Mobile Number.", "warning") :
                     !emailPattern.test($('#user-Email').val()) ? swal("Invalid Email !", "Check Your Email.", "warning") :
                         !addressPattern.test($('#user-Address').val()) ? swal("Invalid Address !", "Check Your Address.", "warning") :
-                            !genderPattern.test($('#user-Gender').val()) ? swal("Invalid Gender !", "Check Your Gender.", "warning") :
                                 !nicPattern.test($('#user-Nic').val()) ? swal("Invalid Nic !", "Check Your Nic.", "warning") : saveUser();
 }
 
 function clearLogin() {
     $('#login-Email').val("");
     $('#login-password').val("");
+    $('#myComboBoxLogIn').val("");
 }
 
 function clearForm() {
@@ -107,9 +101,9 @@ function clearForm() {
     $('#user-Password').val("");
     $('#user-Age').val("");
     $('#user-Contact').val("");
+    $('#user-Gender').val("");
     $('#user-Email').val("");
     $('#user-Address').val("");
-    $('#user-Gender').val("");
     $('#user-Nic').val("");
     $('#user-Profile').val("");
 }
@@ -118,10 +112,51 @@ function navigateToLogin() {
     $(".login").css({display: 'block'});
     $(".register-container").css({display: 'none'});
 }
-
-
-
 function login() {
+    let loginOption = $('#myComboBoxLogIn').val();
+
+    console.log(loginOption)
+
+    if (loginOption !== null){
+        if (loginOption === 'option1'){
+            Userlogin();
+        }else {
+            adminLogin();
+        }
+    }else {
+        swal("Oops","Select Your Login Option!", "error");
+    }
+}
+function adminLogin() {
+    var loginEmail = $('#login-Email').val();
+    var loginPassword = $('#login-password').val();
+
+
+    $.ajax({
+        url: baseURLAdmin + "/" + loginEmail + "/" + loginPassword,
+        method: "GET",
+        success: function (res) {
+            if (res.code == 200) {
+                swal({
+                    title: "Login Success!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                    button: "Continue",
+                });
+                clearLogin();
+                window.location.href="page/Dashbord.html";
+
+            }
+        },
+        error: function (ob) {
+            swal("Oops", ob.responseJSON.message, "error");
+
+        }
+    });
+}
+
+
+function Userlogin() {
 
     var loginEmail = $('#login-Email').val();
     var loginPassword = $('#login-password').val();
@@ -139,7 +174,7 @@ function login() {
                     button: "Continue",
                 });
                 clearLogin();
-                window.location.href="page/Dashbord.html";
+                window.location.href="page2/package.html";
 
             }
         },

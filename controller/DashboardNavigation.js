@@ -7,6 +7,7 @@ $(".register-container").css({display: 'none'});
 $(".vehicle-container").css({display: 'none'});
 $(".hotel-container").css({display: 'none'});
 $(".guide-container").css({display: 'none'});
+$(".package-container").css({display: 'none'});
 
 $("#package-btn").click(function () {
     $('#dashboard').css({display: 'none'});

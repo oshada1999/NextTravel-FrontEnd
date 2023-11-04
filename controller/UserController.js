@@ -1,11 +1,12 @@
 var userBaseURL = "http://localhost:8080/app/api/v1/user";
 
 var usernamePattern = /^[a-zA-Z0-9]{3,20}$/;
-var passwordPattern = /^[A-Z|a-z\s|@|#|$|0-9]{6,10}$/;
+var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#])[A-Za-z\d!@#]{12,}$/;
 var mobilePattern = /^0[0-9]{2}[1-9][0-9]{6}$/;
 var emailPattern = /^[0-9A-Z a-z$&#]{3,30}(@gmail.com)|(@yahoo.com)$/;
 var addressPattern = /^[0-9A-Z a-z,/:]{4,50}$/;
 var nicPattern = /^\d{9}[VvXx]$/;
+const dobPattern = /^\d{4}-\d{2}-\d{2}$/;
 
 $('#user-UserName').keyup(function (e) {
     let userName = $('#user-UserName').val();
@@ -61,14 +62,18 @@ $('#user-Nic').keyup(function (e) {
 $('#registerUser-btn').click(function (e) {
     checkUserValidForSave();
 });
+$('#deleteUser-btn').click(function () {
+    deleteUser();
+});
 
 function checkUserValidForSave() {
     !usernamePattern.test($('#user-UserName').val()) ? swal("Invalid UserName !", "Check Your UserName.", "warning") :
         !passwordPattern.test($('#user-Password').val()) ? swal("Invalid Password !", "Check Your Password.", "warning") :
-                !mobilePattern.test($('#user-Contact').val()) ? swal("Invalid Mobile Number !", "Check Your Mobile Number.", "warning") :
-                    !emailPattern.test($('#user-Email').val()) ? swal("Invalid Email !", "Check Your Email.", "warning") :
+            !mobilePattern.test($('#user-Contact').val()) ? swal("Invalid Mobile Number !", "Check Your Mobile Number.", "warning") :
+                !emailPattern.test($('#user-Email').val()) ? swal("Invalid Email !", "Check Your Email.", "warning") :
+                    !dobPattern.test($('#user-Age').val()) ? swal("DOB not Selected !", "Check Your Dob.", "warning") :
                         !addressPattern.test($('#user-Address').val()) ? swal("Invalid Address !", "Check Your Address.", "warning") :
-                                !nicPattern.test($('#user-Nic').val()) ? swal("Invalid Nic !", "Check Your Nic.", "warning") : saveUser();
+                            !nicPattern.test($('#user-Nic').val()) ? swal("Invalid Nic !", "Check Your Nic.", "warning") : saveUser();
 }
 
 $('#update-btn').click(function (e) {
@@ -78,10 +83,11 @@ $('#update-btn').click(function (e) {
 function checkUserValidForUpdate() {
     !usernamePattern.test($('#user-UserName').val()) ? swal("Invalid UserName !", "Check Your UserName.", "warning") :
         !passwordPattern.test($('#user-Password').val()) ? swal("Invalid Password !", "Check Your Password.", "warning") :
-                !mobilePattern.test($('#user-Contact').val()) ? swal("Invalid Mobile Number !", "Check Your Mobile Number.", "warning") :
+            !mobilePattern.test($('#user-Contact').val()) ? swal("Invalid Mobile Number !", "Check Your Mobile Number.", "warning") :
+                !dobPattern.test($('#user-Age').val()) ? swal("DOB not Selected !", "Check Your Dob.", "warning") :
                     !emailPattern.test($('#user-Email').val()) ? swal("Invalid Email !", "Check Your Email.", "warning") :
                         !addressPattern.test($('#user-Address').val()) ? swal("Invalid Address !", "Check Your Address.", "warning") :
-                                !nicPattern.test($('#user-Nic').val()) ? swal("Invalid Nic !", "Check Your Nic.", "warning") : updateUser();
+                            !nicPattern.test($('#user-Nic').val()) ? swal("Invalid Nic !", "Check Your Nic.", "warning") : updateUser();
 }
 
 function clearForm() {
@@ -161,6 +167,7 @@ $(".icon-close").click(function () {
 });
 
 $('#addUser-btn').click(function () {
+    $("#deleteUser-btn").css({display: 'none'});
     $(".bottom-data").css({display: 'none'});
     $('#user-title').text("User Registration");
     windowBlue();
@@ -176,6 +183,7 @@ function editNavigation() {
     $('#user-title').text("Update User");
     $("#registerUser-btn").css({display: 'none'});
     $("#update-btn").css({display: 'block'});
+    $("#deleteUser-btn").css({display: 'block'});
     $("#edit-UI").css({display: 'block'});
     $("#reg-UI").css({display: 'none'});
     bindClickEvents();
@@ -224,6 +232,7 @@ function bindClickEvents() {
         $('#user-Nic').val(nic);
         $('#userId').text(userID);
         // $('#user-Profile').val(imageUrl);
+        editNavigation();
 
     });
 }
@@ -234,17 +243,17 @@ $("#search-user").on("keypress", function (e) {
     }
 });
 
-$(document).ready(function() {
-    $('#search-user').on('input', function() {
+$(document).ready(function () {
+    $('#search-user').on('input', function () {
         // Check if the input field is empty
         if ($(this).val() === '') {
-           loadAllUsers();
+            loadAllUsers();
         }
     });
 });
 
 $('#searchUser-btn').click(function () {
-   searchCustomer();
+    searchCustomer();
 });
 
 //Search Customer
@@ -266,8 +275,7 @@ function searchCustomer() {
                              <div>
                              <button class="edit-Btn" onclick="editNavigation()"><i class='bx bx-edit'></i> edit</button>
                             
-                            <button class="delete-Btn" onclick="deleteById()"><i class='bx bxs-trash-alt' ></i> delete</button>
-                            </div>
+                        </div>
                             
                         </td>
                             </tr>`;
@@ -278,11 +286,12 @@ function searchCustomer() {
                 clearForm();
             }
         },
-        error:function (ob){
+        error: function (ob) {
             swal("Oops", ob.responseJSON.message, "error");
         }
     });
 }
+
 function updateUser() {
 
     var userObj = {
@@ -347,8 +356,6 @@ function loadAllUsers() {
                             <td>${user.email}</td><td>${user.gender}</td><td>${user.contact}</td><td>${user.address}</td><td>${user.password}</td>
                              <td>
                             <button class="edit-Btn" onclick="editNavigation()"><i class='bx bx-edit'></i> edit</button>
-                            
-                            <button class="delete-Btn" onclick="deleteById()"><i class='bx bxs-trash-alt' ></i> delete</button>
                         </td>
                             </tr>`;
 
@@ -356,6 +363,7 @@ function loadAllUsers() {
                 $("#tbluser tr:last-child img").attr('src', `data:image/png;base64,${user.profilePic}`);
             }
             clearForm();
+            bindClickEvents();
 
         },
         error: function (ob) {
@@ -365,7 +373,9 @@ function loadAllUsers() {
 
 }
 
-function deleteUser(userId) {
+function deleteUser() {
+    let userId = $('#userId').text();
+
     swal({
         title: "Delete User",
         text: "Are you sure you want to delete this user?",
@@ -383,6 +393,7 @@ function deleteUser(userId) {
                             swal("Deleted", "Success", "success");
                             loadAllUsers();
                             clearForm();
+                            closePopupWindow();
                         }
                     },
                     error: function (ob) {
@@ -391,14 +402,4 @@ function deleteUser(userId) {
                 });
             }
         });
-}
-
-function deleteById() {
-    $("#tbluser>tr").click(function () {
-
-        var userID = $(this).children().eq(0).text();
-
-        deleteUser(userID);
-
-    });
 }

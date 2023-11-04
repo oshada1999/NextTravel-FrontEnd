@@ -1,9 +1,9 @@
-var vehicleBaseURL = "http://localhost:8080/app/api/v1/vehicle";
+var vehicleBaseURL = "http://localhost:8765/vehicle-service/app/api/v1/vehicle";
 
 $('.second').css({display: 'none'});
 $('.first').css({display: 'block'});
 
-var vehicleBrand = /^[A-Za-z]+$/;
+var vehicleBrand = /^[A-Za-z '-]+$/;
 var driverName = /^[A-Za-z '-]+$/;
 var mobilePattern = /^0[0-9]{2}[1-9][0-9]{6}$/;
 var fuelUsage = /^[0-9]+$/;

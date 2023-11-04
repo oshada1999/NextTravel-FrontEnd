@@ -49,12 +49,12 @@
                 <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
             </div>
         </form>
-        <input type="checkbox" id="theme-toggle" hidden>
+        <!--<input type="checkbox" id="theme-toggle" hidden>
         <label for="theme-toggle" class="theme-toggle"></label>
 
         <a href="#" class="profile">
             <img src="">
-        </a>
+        </a>-->
     </nav>
 
     <!-- End of Navbar -->
@@ -122,48 +122,28 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>User</th>
-                        <th>Order Date</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
+                        <th> ID</th>
+                        <th>Category</th>
+                        <th>Area</th>
+                        <th>Bank Slip</th>
+                        <th>Guide ID</th>
+                        <th>Vehicle ID</th>
+                        <th>Hotel ID</th>
+                        <th>Customer ID</th>
+                        <th>Package Price</th>
+                        <th>Paid Value</th>
+                        <th>Guide Status</th>
+                        <th>Pets Status</th>
+                        <th>Head Count</th>
+                        <th>No of Child</th>
+                        <th>No of Adult</th>
+                        <th>StartDate</th>
+                        <th>EndDate</th>
+                        <th>Date Duration</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                        <td><span class="status completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="">
-                            <p>John Doe</p>
-                        </td>
-                        <td>14-08-2023</td>
-                        <td><span class="status process">Processing</span></td>
-                    </tr>
+                    <tbody id="tblDashboard">
+
                     </tbody>
                 </table>
             </div>
@@ -204,13 +184,23 @@
                     <tr>
                         <th> ID</th>
                         <th>Category</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
-                        <th>Status</th>
+                        <th>Area</th>
+                        <th>Bank Slip</th>
+                        <th>Guide ID</th>
+                        <th>Vehicle ID</th>
+                        <th>Hotel ID</th>
+                        <th>Customer ID</th>
+                        <th>Package Price</th>
+                        <th>Paid Value</th>
+                        <th>Guide Status</th>
+                        <th>Pets Status</th>
+                        <th>Head Count</th>
+                        <th>No of Child</th>
+                        <th>No of Adult</th>
+                        <th>StartDate</th>
+                        <th>EndDate</th>
+                        <th>Date Duration</th>
+                        <th>Option</th>
                     </tr>
                     </thead>
                     <tbody id="tblPackage">
@@ -533,7 +523,7 @@
             <div class="form first">
                 <div class="details-personal personal">
                     <div id="edit-UI">
-                        <span class="title"> User ID  :<label id="userId">User Id</label></span>
+                        <span class="title"> User ID  :<label id="userId"></label></span>
                     </div>
 
                     <span class="title" id="reg-UI">Personal Details</span>
@@ -581,6 +571,9 @@
                     <br>
                     <button type="button" id="registerUser-btn" class="register-btn">Register</button>
                     <button type="button" id="update-btn" class="register-btn">Update</button>
+                    <button class="btnDelete" id="deleteUser-btn" type="button">
+                        <span class="btnText"><i class='bx bxs-trash-alt'></i> Delete</span>
+                    </button>
                 </div>
 
             </div>
@@ -1011,6 +1004,198 @@
                             <i class='uil uil-navigator'></i>
                         </button>
                         <button class="savebtn" id="updateGuide-btn" type="button">
+                            <span class="btnText">Update</span>
+                            <i class='uil uil-navigator'></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</main>
+<main id="package-register">
+    <div class="package-container icon">
+                <span class=" icon-close">
+                    <ion-icon name="close"></ion-icon>
+                </span>
+
+        <h2 id="package-title">Update Travel Package</h2>
+        <form id="package-Form" action="/processForm" method="post">
+            <div class="form first">
+                <div class="details-personal personal">
+                    <div id="edit-packageUI">
+                        <span class="title"> Package ID  :<label id="packageIDLbl">Hotel ID</label></span>
+                    </div>
+                    <div class="fields">
+
+                        <div class="input-fields">
+                            <label>Travel Area</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packageArea" class="combo-box" required>
+                                <option value="Kandy and Upcountry">Kandy and Upcountry</option>
+                                <option value="Eastern Coast">Eastern Coast</option>
+                                <option value="Capital Colombo">Capital Colombo</option>
+                                <option value="Western Coast">Western Coast</option>
+                                <option value="North Peninsula">North Peninsula</option>
+                                <option value="Down South">Down South</option>
+                                <option value="Sigiriya and Dambulla">Sigiriya and Dambulla</option>
+                                <option value="Anuradhapura and Polonnaruwa">Anuradhapura and Polonnaruwa</option>
+                                <option value="Matale">Matale</option>
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Package Category</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packageCategorySelected" class="combo-box" required>
+                                <option value="" disabled selected>Select a Package</option>
+                                <option value="2 Star/Economy ">Economy</option>
+                                <option value="3 Star/Mid-Range">Mid-Range</option>
+                                <option value="4 Star/Luxury">Luxury</option>
+                                <option value="5 Star/Super-Luxury">Super-Luxury</option>
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Guide ID</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packageGuideID" class="combo-box" required>
+                                <option value="1">1</option>
+
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Vehicle ID</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packageVehicleID" class="combo-box" required>
+                                <option value="1">1</option>
+
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Hotel ID</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packageHotelID" class="combo-box" required>
+                                <option value="1">1</option>
+
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Hotel Category</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packageHotelCategoryID" class="combo-box" required>
+                                <option value="1">1</option>
+
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Customer ID</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packageCustomerID" class="combo-box" required>
+
+
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Check In Date</label>
+                            <input type="date" id="startDate"  required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Check Out Date</label>
+                            <input type="Date" id="endDate" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Need Guide</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packageGuideStatus" class="combo-box" required>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>Pet Status</label>
+                            <!-- <input type="text" id="vehicleCategory" placeholder="Enter Category" required>-->
+                            <select id="packagePetStatus" class="combo-box" required>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+
+                            </select>
+                        </div>
+                        <div class="input-fields">
+                            <label>No Of Child</label>
+                            <input type="text" id="packageNumberOfChild" placeholder="Enter Hotel Contact" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>No Of Adult</label>
+                            <input type="text" id="packageNumberOfAdult" placeholder="Enter Hotel Contact" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Total Head Count</label>
+                            <input type="text" id="packageNumberOfTotalCount" placeholder="Enter Hotel Contact" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Total Days Count</label>
+                            <input type="text" id="packageTotalDaysCount" placeholder="Enter Hotel Contact" required>
+                        </div>
+
+                    </div>
+                    <div class="buttons-vehicle">
+                        <button class="nextBtn" id="nextPackage-btn" type="button">
+                            <span class="btnText">Next</span>
+                            <i class='uil uil-navigator'></i>
+                        </button>
+                        <button class="btnDelete" id="deletePackage-btn" type="button">
+                            <span class="btnText"><i class='bx bxs-trash-alt'></i> Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" second">
+                <div class="details-personal photo">
+
+                    <span class="title">Payment Details</span>
+                    <div class="fields hotel-img">
+                        <div class="input-fields">
+                            <label>Hotel Price</label>
+                            <label id="hotelPrice"></label>
+
+                        </div>
+                        <div class="input-fields">
+                            <label>Guide Price</label>
+                            <label id="guidePrice"></label>
+
+                        </div>
+                        <div class="input-fields">
+                            <label>Vehicle Price</label>
+                            <label id="vehiclePrice"></label>
+                        </div>
+                        <div class="input-fields">
+                            <label>Package Value</label>
+                            <input type="text" id="PackagePackageValue" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Paid Value</label>
+                            <input type="text" id="PackagePaidValue" required>
+                        </div>
+                        <div class="input-fields">
+                            <label>Hotel Image</label>
+                            <input type="file" id="packaheBanlSlip" required>
+                        </div>
+
+
+                    </div>
+
+                    <div class="buttons">
+                        <div class="backBtn">
+                            <i class='uil uil-navigator'></i>
+                            <span class="btnText">Back</span>
+
+                        </div>
+
+                        <button class="savebtn" id="updatePackage-btn" type="button">
                             <span class="btnText">Update</span>
                             <i class='uil uil-navigator'></i>
                         </button>

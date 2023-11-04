@@ -70,7 +70,8 @@
                     <form action="#">
                         <div class="input-box">
                             <div class="custom-select">
-                                <select id="myComboBox">
+                                <select id="myComboBoxLogIn">
+                                    <option value="" disabled selected>Select LogIn Option</option>
                                     <option value="option1">As a Customer</option>
                                     <option value="option2">As a Admin</option>
                                 </select>
@@ -119,8 +120,8 @@
                                     <input type="password" id="user-Password" placeholder="Enter Password" required>
                                 </div>
                                 <div class="input-fields">
-                                    <label>Age</label>
-                                    <input type="number" id="user-Age" placeholder="Enter Age" required>
+                                    <label>DOB</label>
+                                    <input type="date" id="user-Age" placeholder="Enter Age" required>
                                 </div>
                                 <div class="input-fields">
                                     <label>Mobile Number</label>
@@ -136,7 +137,10 @@
                                 </div>
                                 <div class="input-fields">
                                     <label>Gender</label>
-                                    <input type="text" id="user-Gender" placeholder="Enter Gender" required>
+                                    <select id="user-Gender" class="combo-box" required>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
                                 </div>
                                 <div class="input-fields">
                                     <label>NIC Number</label>
