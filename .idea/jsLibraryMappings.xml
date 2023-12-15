@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{@popperjs/core, bootstrap, boxicons, sweetalert}" />
+    <file url="file://$PROJECT_DIR$" libraries="{@popperjs/core, aos, bootstrap, boxicons, sweetalert}" />
   </component>
 </project>

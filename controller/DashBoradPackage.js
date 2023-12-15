@@ -59,7 +59,7 @@ function navigateToNext() {
 }
 
 $('#addPackage-btn').click(function () {
-    window.location.href = "../page2/package.html";
+    window.location.href = "../pages/page2/package.html";
 });
 
 function windowBlurPackage() {

@@ -144,7 +144,7 @@ function adminLogin() {
                     button: "Continue",
                 });
                 clearLogin();
-                window.location.href="page/Dashbord.html";
+                window.location.href="../pages/page1/Dashbord.html";
 
             }
         },
@@ -174,7 +174,7 @@ function Userlogin() {
                     button: "Continue",
                 });
                 clearLogin();
-                window.location.href="page2/package.html";
+                window.location.href="../pages/page2/package.html";
 
             }
         },
